@@ -19,7 +19,7 @@ class CreateCarreraPlanTable extends Migration
             
             $table->primary(['id_plan', 'id_carrera']);
             $table->foreign('id_plan', 'carrera_plan_ibfk_1')->references('id_plan')->on('plan_estudio');
-            $table->foreign('id_carrera', 'carrera_plan_ibfk_2')->references('Id_Carrera')->on('carrera');
+            $table->foreign('id_carrera', 'carrera_plan_ibfk_2')->references('id_carrera')->on('carrera');
         });
     }
 

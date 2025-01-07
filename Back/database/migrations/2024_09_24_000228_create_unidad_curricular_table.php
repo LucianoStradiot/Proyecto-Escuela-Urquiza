@@ -14,7 +14,7 @@ class CreateUnidadCurricularTable extends Migration
     public function up()
     {
         Schema::create('unidad_curricular', function (Blueprint $table) {
-            $table->integer('Id_UC')->primary();
+            $table->integer('id_uc')->primary();
             $table->string('Unidad_Curricular', 60)->nullable();
             $table->string('Tipo', 20)->nullable();
             $table->integer('HorasSem')->nullable();

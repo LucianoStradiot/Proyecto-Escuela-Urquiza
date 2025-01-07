@@ -14,11 +14,11 @@ class CreateGradoTable extends Migration
     public function up()
     {
         Schema::create('grado', function (Blueprint $table) {
-            $table->integer('Id_Grado')->primary();
-            $table->integer('Grado')->nullable();
-            $table->integer('Division')->nullable();
-            $table->string('Detalle', 70)->nullable();
-            $table->integer('Capacidad')->nullable();
+            $table->integer('id_grado')->primary();
+            $table->integer('grado')->nullable();
+            $table->integer('division')->nullable();
+            $table->string('detalle', 70)->nullable();
+            $table->integer('capacidad')->nullable();
         });
     }
 

@@ -24,11 +24,11 @@ class CreateDisponibilidadTable extends Migration
             $table->time('modulo_inicio')->nullable();
             $table->time('modulo_fin')->nullable();
             
-            $table->foreign('id_uc', 'disponibilidad_ibfk_1')->references('Id_UC')->on('unidad_curricular')->onDelete('cascade');
+            $table->foreign('id_uc', 'disponibilidad_ibfk_1')->references('id_uc')->on('unidad_curricular')->onDelete('cascade');
             $table->foreign('id_docente', 'disponibilidad_ibfk_2')->references('id_docente')->on('docente')->onDelete('cascade');
             $table->foreign('id_h_p_d', 'disponibilidad_ibfk_3')->references('id_h_p_d')->on('horario_previo_docente')->onDelete('cascade');
             $table->foreign('id_aula', 'disponibilidad_ibfk_4')->references('id_aula')->on('aula')->onDelete('cascade');
-            $table->foreign('id_grado', 'disponibilidad_ibfk_5')->references('Id_Grado')->on('grado')->onDelete('cascade');
+            $table->foreign('id_grado', 'disponibilidad_ibfk_5')->references('id_grado')->on('grado')->onDelete('cascade');
         });
     }
 

@@ -207,9 +207,7 @@ const Header = () => {
     <>
       <header className={styles.header}>
         <div className={styles.container}>
-          <h1 className={`${styles.title} ${styles.titleLanding}`}>
-            Escuela Superior de Comercio N°49
-          </h1>
+          <h1 className={`${styles.title} ${styles.titleLanding}`}>Escuela de Comercio N°49</h1>
         </div>
         <div className={styles.wallpaper}></div>
       </header>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from '../Components/Home';
-import Login from '../Views/LandingView/Login';
 import Carreras from '../Views/LandingView/Carreras';
 import Inscripciones from '../Views/LandingView/Inscripciones';
 import SuperAdmin from '../Views/SuperAdminView/SuperAdmin';
@@ -15,6 +14,7 @@ import SuperAdminView from '../Views/SuperAdminView';
 import SignUp from '../Views/LandingView/SignUp';
 import RecoverPassword from '../Views/LandingView/Login/RecoverPassword';
 import ResetPassword from '../Views/LandingView/Login/ResetPassword';
+import Login from '../Views/LandingView/Login';
 
 const RoutesLanding = () => {
   const { pathname } = useLocation();

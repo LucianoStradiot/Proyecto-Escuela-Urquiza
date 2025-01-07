@@ -14,11 +14,12 @@ class CreateAlumnoUcTable extends Migration
     public function up()
     {
         Schema::create('alumno_uc', function (Blueprint $table) {
-            $table->integer('id_alumno')->nullable();
-            $table->integer('id_uc')->nullable();
+            $table->integer('id_alumno');
+            $table->integer('id_uc');
             
-            $table->foreign('id_uc', 'alumno_uc_ibfk_1')->references('Id_UC')->on('unidad_curricular')->onDelete('cascade');
-            $table->foreign('id_alumno', 'alumno_uc_ibfk_2')->references('Id_Alumno')->on('alumno')->onDelete('cascade');
+            $table->primary(['id_alumno', 'id_uc']);
+            $table->foreign('id_uc', 'alumno_uc_ibfk_1')->references('id_uc')->on('unidad_curricular')->onDelete('cascade');
+            $table->foreign('id_alumno', 'alumno_uc_ibfk_2')->references('id_alumno')->on('alumno')->onDelete('cascade');
         });
     }
 

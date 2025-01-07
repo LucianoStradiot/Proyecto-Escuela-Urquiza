@@ -16,12 +16,12 @@ class CreateAsistenciaTable extends Migration
         Schema::create('asistencia', function (Blueprint $table) {
             $table->integer('id_asistencia')->primary();
             $table->integer('id_alumno')->nullable();
-            $table->integer('Id_uc')->nullable();
+            $table->integer('id_uc')->nullable();
             $table->string('asistencia', 50)->nullable();
             $table->dateTime('fecha')->nullable();
             
-            $table->foreign('id_alumno', 'asistencia_ibfk_1')->references('Id_Alumno')->on('alumno')->onDelete('cascade');
-            $table->foreign('Id_uc', 'asistencia_ibfk_2')->references('Id_UC')->on('unidad_curricular')->onDelete('cascade');
+            $table->foreign('id_alumno', 'asistencia_ibfk_1')->references('id_alumno')->on('alumno')->onDelete('cascade');
+            $table->foreign('id_uc', 'asistencia_ibfk_2')->references('id_uc')->on('unidad_curricular')->onDelete('cascade');
         });
     }
 

@@ -19,7 +19,7 @@ class CreateAlumnoPlanTable extends Migration
             
             $table->primary(['id_plan', 'id_alumno']);
             $table->foreign('id_plan', 'alumno_plan_ibfk_1')->references('id_plan')->on('plan_estudio');
-            $table->foreign('id_alumno', 'alumno_plan_ibfk_2')->references('Id_Alumno')->on('alumno');
+            $table->foreign('id_alumno', 'alumno_plan_ibfk_2')->references('id_alumno')->on('alumno');
         });
     }
 

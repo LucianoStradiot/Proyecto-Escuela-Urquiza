@@ -14,9 +14,9 @@ class CreateCarreraTable extends Migration
     public function up()
     {
         Schema::create('carrera', function (Blueprint $table) {
-            $table->integer('Id_Carrera')->primary();
-            $table->string('Carrera', 70)->nullable();
-            $table->integer('Cupo')->nullable();
+            $table->integer('id_carrera')->primary();
+            $table->string('carrera', 70)->nullable();
+            $table->integer('cupo')->nullable();
         });
     }
 

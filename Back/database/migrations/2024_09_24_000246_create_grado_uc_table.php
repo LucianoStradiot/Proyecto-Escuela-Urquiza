@@ -14,11 +14,12 @@ class CreateGradoUcTable extends Migration
     public function up()
     {
         Schema::create('grado_uc', function (Blueprint $table) {
-            $table->integer('Id_Grado')->nullable();
-            $table->integer('Id_UC')->nullable();
+            $table->integer('id_grado');
+            $table->integer('id_uc');
             
-            $table->foreign('Id_UC', 'fk_grado_uc_uc')->references('Id_UC')->on('unidad_curricular')->onDelete('cascade');
-            $table->foreign('Id_Grado', 'grado_uc_FK')->references('Id_Grado')->on('grado')->onDelete('cascade');
+            $table->primary(['id_grado', 'id_uc']);
+            $table->foreign('id_uc', 'fk_grado_uc_uc')->references('id_uc')->on('unidad_curricular')->onDelete('cascade');
+            $table->foreign('id_grado', 'grado_uc_FK')->references('id_grado')->on('grado')->onDelete('cascade');
         });
     }
 

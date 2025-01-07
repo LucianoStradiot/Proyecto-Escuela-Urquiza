@@ -17,9 +17,35 @@ use \App\Models\SuperAdmin;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Log;
 use App\Http\Resources\StudentResource;
+use Google\Client as GoogleClient;
 
 class AuthController extends Controller
 {
+    public function googleCallback(Request $request)
+    {
+        $token = $request->input('credential'); // Este es el token que recibes de tu frontend (React)
+
+        // Verificar el token con la API de Google
+        $client = new GoogleClient(['client_id' => config('services.google.client_id')]);
+        $payload = $client->verifyIdToken($token);
+
+        if ($payload) {
+            $googleId = $payload['sub'];
+            $email = $payload['email'];
+            $name = $payload['name'];
+
+            $student = Student::firstOrCreate(
+                ['email' => $email],
+                ['name' => $name, 'dni' => null]
+            );
+
+            auth()->login($student);
+
+            return response()->json(['message' => 'Authenticated successfully']);
+        } else {
+            return response()->json(['error' => 'Invalid token'], 401);
+        }
+    }
 
     public function signup(SignUpStudentRequest $request)
     {

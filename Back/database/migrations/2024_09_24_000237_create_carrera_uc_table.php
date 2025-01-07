@@ -14,11 +14,12 @@ class CreateCarreraUcTable extends Migration
     public function up()
     {
         Schema::create('carrera_uc', function (Blueprint $table) {
-            $table->integer('Id_Carrera')->nullable();
-            $table->integer('Id_UC')->nullable();
+            $table->integer('id_carrera');
+            $table->integer('id_uc');
             
-            $table->foreign('Id_Carrera', 'fk_carrera_uc_carrera')->references('Id_Carrera')->on('carrera')->onDelete('cascade');
-            $table->foreign('Id_UC', 'fk_carrera_uc_uc')->references('Id_UC')->on('unidad_curricular')->onDelete('cascade');
+            $table->primary(['id_carrera', 'id_uc']);
+            $table->foreign('id_carrera', 'fk_carrera_uc_carrera')->references('id_carrera')->on('carrera')->onDelete('cascade');
+            $table->foreign('id_uc', 'fk_carrera_uc_uc')->references('id_uc')->on('unidad_curricular')->onDelete('cascade');
         });
     }
 

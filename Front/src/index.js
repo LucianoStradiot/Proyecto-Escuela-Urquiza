@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Header from './Components/Header';
-/* import Footer from './Components/Footer'; */
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import RoutesLanding from './Routes';
 import { ContextProvider, ModalProvider } from './Components/Contexts';
 import { BrowserRouter } from 'react-router-dom';
@@ -13,9 +13,11 @@ root.render(
     <BrowserRouter>
       <ModalProvider>
         <ContextProvider>
-          <Header />
-          <RoutesLanding />
-          {/*  <Footer /> */}
+          <GoogleOAuthProvider clientId={`${process.env.GOOGLE_CLIENT_ID}`}>
+            <Header />
+            <RoutesLanding />
+            {/*  <Footer /> */}
+          </GoogleOAuthProvider>
         </ContextProvider>
       </ModalProvider>
     </BrowserRouter>
